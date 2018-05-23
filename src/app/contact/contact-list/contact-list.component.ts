@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../services/contact.service';
 import {Router} from '@angular/router';
@@ -19,7 +19,7 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toolbar.toolbarOptions.next(new ToolbarOptions('Contacts', []));
+    this.toolbar.toolbarOptions.next(new ToolbarOptions(false, 'Contacts', []));
 
     this.contactService.getContacts().subscribe(response => {
       this.contacts = response;
@@ -28,7 +28,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onContactSelect(contact): void {
-   // console.log(contact.id);
+    // console.log(contact.id);
     this.router.navigate(['/contacts', contact.id]);
   }
 
